@@ -1,0 +1,194 @@
+@use '@/assets/styles/variables' as *;
+@use 'sass:color';
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -20%) 100%);
+  padding: $spacing-lg;
+}
+
+.login-container {
+  background-color: $bg-primary;
+  border-radius: $border-radius-2xl;
+  padding: $spacing-xl;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: $shadow-lg;
+  animation: slideUp $transition-slow;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  h1 {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.form-group label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+}
+
+.form-group input {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  transition: all $transition-normal;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.error-message {
+  padding: $spacing-sm;
+  background-color: $danger-light;
+  color: $danger-color;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+.success-message {
+  padding: $spacing-sm;
+  background-color: $success-light;
+  color: $success-color;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+.btn-primary {
+  padding: $spacing-md;
+  background: linear-gradient(135deg, $primary-color 0%, $primary-hover 100%);
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.login-footer {
+  margin-top: $spacing-lg;
+  text-align: center;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: $primary-color;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: $spacing-lg 0;
+  color: $text-muted;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: $border-color;
+  }
+
+  span {
+    padding: 0 $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+.btn-guest {
+  width: 100%;
+  padding: $spacing-md;
+  background-color: transparent;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page {
+    padding: $spacing-md;
+  }
+
+  .login-container {
+    padding: $spacing-lg;
+  }
+
+  .login-header h1 {
+    font-size: $font-size-xl;
+  }
+}

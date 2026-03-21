@@ -1,0 +1,74 @@
+@use '@/assets/styles/variables' as *;
+
+/**
+ * 全局样式重置
+ * 清除浏览器默认样式，统一各浏览器表现
+ */
+
+/* 清除所有元素的默认边距和填充 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML 和 Body 基础样式 */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $bg-secondary;
+}
+
+/* 链接样式重置 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 列表样式重置 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 标题样式重置 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+/* 按钮样式重置 */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+/* 图片样式重置 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 输入框样式重置 */
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* 表格样式重置 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

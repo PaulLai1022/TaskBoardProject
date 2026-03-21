@@ -1,0 +1,99 @@
+/**
+ * SCSS 变量定义文件
+ * 集中管理项目的样式变量
+ */
+
+// ==================== 主题色 ====================
+$primary-color: #3b82f6;
+$primary-hover: #2563eb;
+$primary-light: rgba(59, 130, 246, 0.1);
+$secondary-color: #2c3e50;
+
+// ==================== 状态颜色 ====================
+$success-color: #10b981;
+$success-light: #d1fae5;
+$warning-color: #f59e0b;
+$warning-light: #fef3c7;
+$danger-color: #ef4444;
+$danger-light: #fee2e2;
+$info-color: #3b82f6;
+$info-light: #dbeafe;
+
+// ==================== 背景色 ====================
+$bg-primary: #ffffff;
+$bg-secondary: #f8fafc;
+$bg-tertiary: #f1f5f9;
+$bg-input: #fafafa;
+$bg-input-hover: #f9fafb;
+
+// ==================== 文字颜色 ====================
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+$text-muted: #9ca3af;
+$text-placeholder: #9ca3af;
+
+// ==================== 边框 ====================
+$border-color: #e5e7eb;
+$border-color-hover: #d1d5db;
+$border-color-focus: #3b82f6;
+$border-radius-sm: 6px;
+$border-radius: 8px;
+$border-radius-lg: 10px;
+$border-radius-xl: 12px;
+$border-radius-2xl: 16px;
+$border-radius-3xl: 20px;
+$border-radius-full: 9999px;
+
+// ==================== 阴影 ====================
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-primary: 0 4px 12px rgba(59, 130, 246, 0.35);
+$shadow-primary-hover: 0 6px 16px rgba(59, 130, 246, 0.45);
+
+// ==================== 间距 ====================
+$spacing-xs: 0.25rem;   // 4px
+$spacing-sm: 0.5rem;    // 8px
+$spacing-md: 1rem;      // 16px
+$spacing-lg: 1.5rem;    // 24px
+$spacing-xl: 2rem;      // 32px
+$spacing-2xl: 2.5rem;   // 40px
+
+// ==================== 字体大小 ====================
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-2xl: 1.5rem;   // 24px
+
+// ==================== 字体粗细 ====================
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ==================== 过渡 ====================
+$transition-fast: 0.15s ease;
+$transition-normal: 0.2s ease;
+$transition-slow: 0.3s ease;
+$transition-bounce: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-spring: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+// ==================== 断点 ====================
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// ==================== 遮罩层 ====================
+$overlay-bg: rgba(0, 0, 0, 0.45);
+
+// ==================== 标签颜色 ====================
+$tag-bg: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+$tag-bg-hover: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+$tag-border: #e5e7eb;
+$tag-text: #374151;

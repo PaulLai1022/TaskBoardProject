@@ -1,0 +1,341 @@
+@use '@/assets/styles/variables' as *;
+@use 'sass:color';
+
+/**
+ * 任务详情弹窗样式 - 丝滑圆润风格
+ */
+.task-detail-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: $spacing-lg;
+  backdrop-filter: blur(4px);
+  animation: fadeIn $transition-bounce;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.task-detail-modal {
+  background-color: $bg-primary;
+  border-radius: $border-radius-3xl;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow: hidden;
+  box-shadow: $shadow-2xl;
+  animation: modalSlideUp $transition-spring;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: $text-muted;
+  transition: all $transition-normal;
+  z-index: 10;
+
+  &:hover {
+    background-color: $bg-secondary;
+    color: $text-primary;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.task-detail-modal-content {
+  padding: $spacing-xl;
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  gap: $spacing-xl;
+  position: relative;
+}
+
+/* 左侧主内容区域 */
+.task-detail-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 右侧边栏 */
+.task-detail-sidebar {
+  width: 280px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 任务标题和元信息 */
+.task-detail-header {
+  margin-bottom: $spacing-lg;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.task-detail-title {
+  font-size: 1.6rem;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.task-detail-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-status-badge,
+.task-priority-badge,
+.task-overdue-badge {
+  padding: 6px 12px;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: white;
+  box-shadow: $shadow-xs;
+}
+
+.task-overdue-badge {
+  background: linear-gradient(135deg, $danger-color 0%, color.adjust($danger-color, $lightness: -10%) 100%);
+}
+
+/* 通用区块样式 */
+.task-detail-section {
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.section-title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-bottom: $spacing-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.task-description {
+  color: $text-secondary;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  padding: $spacing-md;
+  background-color: $bg-secondary;
+  border-radius: $border-radius-xl;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  .text-muted {
+    color: $text-muted;
+    font-style: italic;
+  }
+}
+
+/* 侧边栏区块 */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: $spacing-md;
+  background-color: $bg-secondary;
+  border-radius: $border-radius-xl;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  .section-title {
+    margin-bottom: 4px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* 操作按钮 */
+.btn-delete-task {
+  width: 100%;
+  background: linear-gradient(135deg, $danger-light 0%, color.adjust($danger-light, $lightness: -5%) 100%);
+  color: $danger-color;
+  border: 1px solid rgba($danger-color, 0.2);
+  padding: 12px $spacing-md;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-normal;
+  box-shadow: 0 2px 4px rgba($danger-color, 0.1);
+
+  &:hover {
+    background: linear-gradient(135deg, color.adjust($danger-light, $lightness: -5%) 0%, color.adjust($danger-light, $lightness: -10%) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba($danger-color, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* 负责人列表 */
+.assignee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assignee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assignee-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: $border-radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: white;
+}
+
+.assignee-name {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+/* 标签列表 */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-item {
+  padding: 4px 10px;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  background: $tag-bg;
+  color: $tag-text;
+  border: 1px solid $tag-border;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: $tag-bg-hover;
+  }
+}
+
+/* 截止日期 */
+.due-date {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  padding: 10px 12px;
+  background-color: $bg-primary;
+  border-radius: $border-radius;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  &.overdue {
+    background: linear-gradient(135deg, $danger-light 0%, color.adjust($danger-light, $lightness: -5%) 100%);
+    color: $danger-color;
+    border-color: rgba($danger-color, 0.2);
+  }
+}
+
+/* 时间信息 */
+.time-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.time-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.time-label {
+  color: $text-muted;
+}
+
+.time-value {
+  color: $text-secondary;
+  font-weight: $font-weight-medium;
+}
+
+/* 通用文本样式 */
+.text-muted {
+  color: $text-muted;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .task-detail-modal {
+    border-radius: $border-radius-2xl;
+    max-height: 95vh;
+  }
+
+  .task-detail-modal-content {
+    flex-direction: column;
+    padding: $spacing-lg;
+    gap: $spacing-lg;
+  }
+
+  .task-detail-sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .task-detail-title {
+    font-size: 1.3rem;
+  }
+}

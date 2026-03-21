@@ -1,0 +1,77 @@
+@use '@/assets/styles/variables' as *;
+
+/**
+ * 布局组件样式
+ */
+.layout {
+  min-height: 100vh;
+  background-color: $bg-secondary;
+}
+
+/* 顶部栏 */
+.layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  background-color: $bg-primary;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: $shadow-xs;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+.btn-logout {
+  padding: 6px 14px;
+  background-color: transparent;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: 0.85rem;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background-color: $bg-tertiary;
+    border-color: $border-color-hover;
+    color: $text-primary;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.main-content {
+  padding: $spacing-lg $spacing-xl;
+  max-width: 1600px;
+  margin: 0 auto;
+}

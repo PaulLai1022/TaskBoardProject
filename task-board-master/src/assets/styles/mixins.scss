@@ -1,0 +1,90 @@
+/**
+ * SCSS Mixins 文件
+ * 定义可复用的样式混合
+ */
+
+// 引入变量
+@use 'variables' as *;
+
+/**
+ * 弹性布局居中
+ */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * 弹性布局两端对齐
+ */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/**
+ * 卡片样式
+ */
+@mixin card {
+  background-color: $bg-primary;
+  border-radius: $border-radius;
+  box-shadow: $shadow-sm;
+  padding: $spacing-md;
+}
+
+/**
+ * 按钮基础样式
+ */
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: $spacing-sm $spacing-md;
+  transition: background-color $transition-fast;
+}
+
+/**
+ * 响应式断点
+ */
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+/**
+ * 文字省略
+ */
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * 多行文字省略
+ * @param $lines 行数
+ */
+@mixin text-ellipsis-multiline($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

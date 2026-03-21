@@ -1,0 +1,133 @@
+@use '@/assets/styles/variables' as *;
+@use 'sass:color';
+
+/**
+ * 确认弹窗样式
+ */
+.confirm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn $transition-normal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirm-modal {
+  background-color: $bg-primary;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  width: 100%;
+  max-width: 480px;
+  padding: $spacing-lg;
+  animation: slideUp $transition-slow;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.confirm-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.confirm-modal-title {
+  font-size: 1.2rem;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0;
+  text-align: center;
+}
+
+.confirm-modal-message {
+  font-size: $font-size-base;
+  color: $text-secondary;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  margin-top: $spacing-md;
+}
+
+.confirm-modal-btn {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-normal;
+  border: 1px solid transparent;
+  min-width: 100px;
+}
+
+.confirm-modal-btn-secondary {
+  background-color: $bg-secondary;
+  color: $text-secondary;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: $bg-tertiary;
+  }
+}
+
+.confirm-modal-btn-primary {
+  background-color: $danger-color;
+  color: white;
+  border-color: $danger-color;
+
+  &:hover {
+    background-color: color.adjust($danger-color, $lightness: -10%);
+  }
+}
+
+/* 响应式布局 */
+@media (max-width: 640px) {
+  .confirm-modal {
+    max-width: 90%;
+    padding: $spacing-md;
+  }
+
+  .confirm-modal-title {
+    font-size: 1.1rem;
+  }
+
+  .confirm-modal-message {
+    font-size: 0.95rem;
+  }
+
+  .confirm-modal-actions {
+    flex-direction: column;
+  }
+
+  .confirm-modal-btn {
+    width: 100%;
+  }
+}

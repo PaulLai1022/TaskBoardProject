@@ -1,0 +1,10 @@
+/**
+ * 应用根组件样式
+ * 只包含 .app 容器的基础样式
+ */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
