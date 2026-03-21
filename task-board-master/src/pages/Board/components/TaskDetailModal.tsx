@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTaskStore } from '@/store/taskStore'
 import { useAuthStore } from '@/store/authStore'
 import { TaskStatus } from '@/types'
@@ -38,6 +38,13 @@ export default function TaskDetailModal({
 
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false)
 
+  // Reset delete confirm state when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setIsDeleteConfirmOpen(false)
+    }
+  }, [isOpen])
+
   const task = getTaskById(taskId)
 
   if (!task) {
@@ -60,6 +67,7 @@ export default function TaskDetailModal({
   const handleDeleteConfirm = async () => {
     try {
       await deleteTask(task.id)
+      setIsDeleteConfirmOpen(false)
       onClose()
     } catch (error) {
       console.error('Failed to delete task:', error)
